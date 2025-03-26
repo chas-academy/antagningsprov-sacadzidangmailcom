@@ -6,11 +6,10 @@ describe('uppg9', () => {
   let consoleSpy;
   let uppg9Source;
 
-  beforeAll(() => {
+  beforeEach(() => {
     // Read the source file as a string to later check for the if-statement
     uppg9Source = fs.readFileSync(path.join(__dirname, '../uppg9.js'), 'utf8');
   });
-
   beforeEach(() => {
     consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
   });
@@ -21,14 +20,13 @@ describe('uppg9', () => {
 
   test('logs messages indicating if each number is even or odd', () => {
     uppg9();
-    expect(consoleSpy.mock.calls.length).toBeGreaterThan(0);
-  
+    expect(consoleSpy).toHaveBeenCalled();
     consoleSpy.mock.calls.forEach(call => {
+      const [num, msg] = call;
       // Destructure both arguments: the number and its label
-      const [num, label] = call;
       expect(typeof num).toBe('number');
-      expect(typeof label).toBe('string');
-      expect(/(jämt|udda)/.test(label)).toBe(true);
+      expect(typeof msg).toBe('string');
+      expect(msg.toLowerCase()).toMatch(/(jämn|udda)/);
     });
   });
 
@@ -39,6 +37,7 @@ describe('uppg9', () => {
 
   test('source code contains an else clause', () => {
     // Check that there is an else clause present in the code
+    const code = fs.readFileSync(path.join(__dirname, '../uppg9.js'), 'utf8');
     expect(uppg9Source).toMatch(/else\s*{/);
   });
 });
