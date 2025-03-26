@@ -11,8 +11,9 @@ describe('uppg2', () => {
     consoleSpy.mockRestore();
   });
 
-  test('should print "Hampus"', () => {
+  test('should print "Hampus" exactly once ', () => {
     uppg2();
     expect(consoleSpy).toHaveBeenCalledWith('Hampus');
+    expect(consoleSpy).toHaveBeenLastCalledWith(1);
   });
 });

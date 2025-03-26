@@ -11,7 +11,7 @@ describe('uppg1', () => {
     consoleSpy.mockRestore();
   });
  
-  test('should print "Hello World!"', () => {
+  test('should print "Hello World!" exactly once', () => {
     uppg1();
     expect(consoleSpy).toHaveBeenCalledWith('Hello World!');
     expect(consoleSpy).toHaveBeenNthCalledWith(1);
