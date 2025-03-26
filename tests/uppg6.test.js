@@ -15,12 +15,13 @@ describe('uppg6 (unknown array contents)', () => {
     uppg6();
 
     // Ensure that something was logged
-    expect(consoleSpy.mock.calls.length).toBeGreaterThan(0);
+    expect(consoleSpy).toHaveBeenCalled();
 
     // Check that all logged values are strings
     consoleSpy.mock.calls.forEach(call => {
       const [loggedValue] = call;
       expect(typeof loggedValue).toBe('string');
+      expect(loggedValue.trim().length).toBeGreaterThan(0);
     });
   });
 });
