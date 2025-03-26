@@ -10,9 +10,10 @@ describe('uppg1', () => {
   afterEach(() => {
     consoleSpy.mockRestore();
   });
-
+ 
   test('should print "Hello World!"', () => {
     uppg1();
     expect(consoleSpy).toHaveBeenCalledWith('Hello World!');
+    expect(consoleSpy).toHaveBeenNthCalledWith(1);
   });
-});
+}); 
