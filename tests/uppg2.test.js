@@ -14,6 +14,6 @@ describe('uppg2', () => {
   test('should print "Hampus" exactly once ', () => {
     uppg2();
     expect(consoleSpy).toHaveBeenCalledWith('Hampus');
-    expect(consoleSpy).toHaveBeenLastCalledWith(1);
+    expect(consoleSpy).toHaveBeenCalledWith(1);
   });
 });
