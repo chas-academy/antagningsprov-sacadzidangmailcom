@@ -14,6 +14,6 @@ describe('uppg1', () => {
   test('should print "Hello World!" exactly once', () => {
     uppg1();
     expect(consoleSpy).toHaveBeenCalledWith('Hello World!');
-    expect(consoleSpy).toHaveBeenCalledtimes(1);
+    expect(consoleSpy).toHaveBeenCalledTimes(1);
   });
 }); 
