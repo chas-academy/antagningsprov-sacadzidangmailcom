@@ -4,9 +4,8 @@ describe('uppg8', () => {
   let consoleSpy;
 
   beforeEach(() => {
-    consoleSpy = jest.spyOn(console, 'log');
+    consoleSpy = jest.spyOn(console, 'log') .mockImplementation(() => {});
   });
-
   afterEach(() => {
     consoleSpy.mockRestore();
   });
@@ -20,6 +19,7 @@ describe('uppg8', () => {
     consoleSpy.mock.calls.forEach(call => {
       const [loggedValue] = call;
       expect(typeof loggedValue).toBe('string');
+      expect(loggedValue.toLowerCase()).toContain("name");
     });
   });
 });
