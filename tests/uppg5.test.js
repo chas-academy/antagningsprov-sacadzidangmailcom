@@ -11,12 +11,14 @@ describe('uppg5', () => {
     consoleSpy.mockRestore();
   });
 
-  test('should log either "Det första talet är större än det andra" or "Det andra talet är större än det första"', () => {
+  test('should log either "Det första talet är större än det andra" or "Det andra talet är större än det första" exactly once ', () => {
     uppg5();
     const [logged] = consoleSpy.mock.calls[0];
     expect([
       "Det första talet är större än det andra",
-      "Det andra talet är större än det första"
+      "Det andra talet är större än det första",
+      "talen är lika"
     ]).toContain(logged);
+    expect(consoleSpy).toHaveBeenCalledTimes(1);
   });
 });
