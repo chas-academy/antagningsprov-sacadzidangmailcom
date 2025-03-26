@@ -11,8 +11,9 @@ describe('uppg3', () => {
     consoleSpy.mockRestore();
   });
 
-  test('should print the sum of 5 and 10', () => {
+  test('should print the sum of 5 and 10 exactly once', () => {
     uppg3();
     expect(consoleSpy).toHaveBeenCalledWith(15);
+    expect(consoleSpy).toHaveBeenCalledWith(1);
   });
 });
