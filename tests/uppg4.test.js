@@ -11,8 +11,10 @@ describe('uppg4', () => {
     consoleSpy.mockRestore();
   });
 
-  test('should log the person age', () => {
+  test('should log the person age exactly once', () => {
     uppg4();
     expect(consoleSpy).toHaveBeenCalledWith(25);
+    expect(consoleSpy).toHaveBeenCalledWith(1);
+
   });
 });
