@@ -4,11 +4,13 @@ describe('uppg1', () => {
   let consoleSpy;
 
   beforeEach(() => {
-    consoleSpy = jest.spyOn(console, 'log');
+    consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    consoleSpy.mockRestore();
+    if (consoleSpy) {
+      consoleSpy.mockRestore();
+      }
   });
  
   test('should print "Hello World!" exactly once', () => {
