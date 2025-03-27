@@ -4,7 +4,7 @@ describe('uppg3', () => {
   let consoleSpy;
 
   beforeEach(() => {
-    consoleSpy = jest.spyOn(console, 'log');
+    consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -14,6 +14,6 @@ describe('uppg3', () => {
   test('should print the sum of 5 and 10 exactly once', () => {
     uppg3();
     expect(consoleSpy).toHaveBeenCalledWith(15);
-    expect(consoleSpy).toHaveBeenCalledtimes(1);
+    expect(consoleSpy).toHaveBeenCalledTimes(1);
   });
 });
